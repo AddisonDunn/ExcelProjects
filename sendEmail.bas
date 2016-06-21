@@ -12,10 +12,10 @@ Sub sendEmail()
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set writeFile = FSO.CreateTextFile(fileToWrite, True, False)
     
-    'whatever text you want to be put into your txt file
+    'Whatever text you want to be put into your txt file
     Set desiredText = "i love my new job."
     
-    'write the desired text to the file
+    'Write the desired text to the file
     writeFile.Write (desiredText)
     
     'clean up
@@ -24,8 +24,9 @@ Sub sendEmail()
     Set writeFile = Nothing
     Set FSO = Nothing
 
-    'make sure to use the correct file location. It will be in the same location as your Excel file
+    'Make sure to use the file location of your Powershell script that will send an email using the same txt filename.
+    'Such a .ps1 file can be found at github.com/AddisonDunn/PowershellScripts
     strCommand = "powershell.exe -ExecutionPolicy Unrestricted -File ""C:\FILE_LOCATION"""
-    'sends the email through the shell
+    'Sends the email through the shell
     Shell (strCommand)
 End Sub
